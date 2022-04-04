@@ -4,31 +4,7 @@ let secretNumber = Math.trunc(Math.random()*20)+1;
 let score = 20;
 let highscore = 0;
 
-const displayMessage = function(message) {
-  document.querySelector(".message").textContent = message;
-}
-
-const displayNumber = function(number) {
-  document.querySelector(".number").textContent = number;
-}
-
-const rightBgColor = function(right) {
-  document.querySelector("#right").style.backgroundColor = right;
-}
-
-const numberBgColor = function(number) {
-  document.querySelector(".number").style.backgroundColor = number;
-}
-
-const centerMessage = function(center) {
-  document.querySelector(".center-header").textContent = center;
-}
-
-const scoreNumber = function(score) {
-  document.querySelector(".score").textContent = score;
-}
-
-document.querySelector(".check").addEventListener("click", function () {
+const checkNumber = function() {
   const guess = Number(document.querySelector(".guess").value);
   if (guess <= 0) {
     displayMessage("No number!")
@@ -54,7 +30,33 @@ document.querySelector(".check").addEventListener("click", function () {
       scoreNumber(0);
     }
   }
-});
+}
+
+const displayMessage = function(message) {
+  document.querySelector(".message").textContent = message;
+}
+
+const displayNumber = function(number) {
+  document.querySelector(".number").textContent = number;
+}
+
+const rightBgColor = function(right) {
+  document.querySelector("#right").style.backgroundColor = right;
+}
+
+const numberBgColor = function(number) {
+  document.querySelector(".number").style.backgroundColor = number;
+}
+
+const centerMessage = function(center) {
+  document.querySelector(".center-header").textContent = center;
+}
+
+const scoreNumber = function(score) {
+  document.querySelector(".score").textContent = score;
+}
+
+document.querySelector(".check").addEventListener("click", checkNumber);
 
 document.querySelector(".again").addEventListener("click", function () {
   score = 20;
@@ -70,4 +72,10 @@ document.querySelector(".again").addEventListener("click", function () {
 
 document.querySelector(".refresh").addEventListener("click", function () {
   window.location.reload();
+});
+
+document.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    checkNumber();
+  }
 });

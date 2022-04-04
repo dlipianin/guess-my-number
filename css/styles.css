@@ -58,6 +58,7 @@ hr {
 
 .btn {
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .header {
@@ -73,6 +74,15 @@ hr {
   text-align: justify;
   padding: 3%;
   margin-bottom: 10%;
+}
+
+.space {
+  white-space: normal;
+}
+
+.span-paragraph {
+  color: #D9534F;
+  text-transform: uppercase;
 }
 
 .question-paragraph {
